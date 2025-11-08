@@ -1,3 +1,3 @@
-# run.py — 100% WORKING
+# run.py
 import os
 os.system("python app.py")
