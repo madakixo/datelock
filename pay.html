@@ -1,0 +1,13 @@
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<button onclick="pay()">Pay ₦4,500 to Unlock</button>
+<script>
+function pay() {
+  PaystackPop.setup({
+    key: 'pk_test_YOUR_PUBLIC_KEY',
+    email: 'guy@example.com',
+    amount: 450000,
+    ref: '{{ ref }}',
+    callback: () => location.href = '/verify/{{ ref }}'
+  }).openIframe();
+}
+</script>

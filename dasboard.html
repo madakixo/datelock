@@ -1,0 +1,13 @@
+<a href="/pay/{{ girl_id }}"><button>Unlock ₦4,500</button></a>
+<a href="/video/{{ girl_id }}"><button>Video Call</button></a>
+<button onclick="shareLoc({{ girl_id }})">Share Location</button>
+
+<script>
+function shareLoc(girlId) {
+  navigator.geolocation.getCurrentPosition(pos => {
+    fetch('/share_location', {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({lat: pos.coords.latitude, lng: pos.coords.longitude, girl_id: girlId})
+    });
+  });
+}
+</script>

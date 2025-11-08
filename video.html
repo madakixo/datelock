@@ -1,0 +1,11 @@
+<h1>Video Call</h1>
+<video id="local" autoplay muted></video>
+<video id="remote" autoplay></video>
+<script src="/static/js/video.js"></script>
+<script>
+const girlId = {{ girl_id }};
+socketio.emit('join', {girl_id: girlId});
+navigator.mediaDevices.getUserMedia({video:true, audio:true}).then(stream => {
+  document.getElementById('local').srcObject = stream;
+});
+</script>
